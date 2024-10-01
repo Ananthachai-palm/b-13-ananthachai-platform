@@ -546,9 +546,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b39f00c22b6d5fd47b09cdce57daf040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 0
+  health: 0
   anim: {fileID: 0}
   rB: {fileID: 0}
+  attackRange: 6
+  player: {fileID: 594937004}
+  bullet: {fileID: 115806, guid: 40466c5ac40024bbca1e4b144cdf43c2, type: 3}
+  bulletSpawnPoint: {fileID: 648282098}
+  bulletSpawnTime: 1.5
+  bulletTimer: 0
 --- !u!1001 &393893467
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -912,7 +918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579fd82475bd3624bab15e6a66c6eb68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 0
+  health: 0
   anim: {fileID: 0}
   rB: {fileID: 0}
 --- !u!4 &620366148 stripped
@@ -973,6 +979,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 988fc297a71d24254ba0a364fda65476, type: 3}
+--- !u!1 &648282097
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 648282098}
+  m_Layer: 0
+  m_Name: CrocodileShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &648282098
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648282097}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.89, y: 2.77, z: 0.057649694}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &648377731 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 443456, guid: 0cc53454d87ad45c3bafdbf11b7d3b32, type: 3}
@@ -2913,7 +2950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae3cc12a04e1cc489078a683dacba0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 10
+  health: 0
   anim: {fileID: 1981440144}
   rB: {fileID: 1981440145}
   velocity: {x: -1, y: 0}
@@ -3293,3 +3330,4 @@ SceneRoots:
   - {fileID: 341433136}
   - {fileID: 2047201469}
   - {fileID: 1519090019}
+  - {fileID: 648282098}

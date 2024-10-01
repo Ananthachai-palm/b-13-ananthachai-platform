@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Charecter : MonoBehaviour
 {
-    private int _health;
+    [SerializeField] private int _health;
     public int Health
     {
         get
@@ -27,6 +27,10 @@ public abstract class Charecter : MonoBehaviour
     public void TakeDamage(int damage)
     {
         Health -= damage;
+    }
+    public void Init(int newHealth)
+    {
+        Health = newHealth;
     }
 
 }

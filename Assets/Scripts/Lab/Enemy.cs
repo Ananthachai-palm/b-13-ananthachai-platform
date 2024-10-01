@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Enemy : MonoBehaviour
+public abstract class Enemy : Charecter
 {
     private int _damage;
     public int Damage
@@ -18,7 +18,7 @@ public abstract class Enemy : MonoBehaviour
     }
 
     public abstract void Behaviour();
-    public void Start()
+    private void Start()
     {
         Behaviour();
     }

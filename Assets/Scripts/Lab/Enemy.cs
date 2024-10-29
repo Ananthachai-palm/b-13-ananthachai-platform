@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Enemy : Charecter
+public abstract class Enemy : Character
 {
     private int _damage;
     public int Damage

@@ -11,19 +11,13 @@ public class Player : Character, IShootable
 
     private void Start()
     {
-        BulletTimer = 0.0f;
+        Init(100);
+        Debug.Log($"Player Health: {Health}");
     }
     private void Update()
     {
         Shoot();
-    }
-    private void FixedUpdate()
-    {
         BulletTimer -= Time.deltaTime;
-        if (IsReadyToShoot())
-        {
-            BulletTimer = BulletSpawnTime;
-        }
     }
     private bool IsReadyToShoot()
     {

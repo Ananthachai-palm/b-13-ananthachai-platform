@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class Crocodile : Enemy , IShootable
@@ -12,6 +11,7 @@ public class Crocodile : Enemy , IShootable
     [field: SerializeField] public GameObject Bullet { get; set; }
     [field: SerializeField] public float BulletSpawnTime { get; set; }
     public float BulletTimer { get; set; }
+
 
     private void Update()
     {
@@ -39,7 +39,13 @@ public class Crocodile : Enemy , IShootable
     {
         if (IsReadyToShoot())
         {
-            Instantiate(Bullet, BulletSpawnPoint.position, Quaternion.identity);
+            anim.SetTrigger("Shoot");
+            GameObject bulletObject = Instantiate(Bullet, BulletSpawnPoint.position, Quaternion.identity);
+            Rock rock = bulletObject.GetComponent<Rock>();
+            rock.Init(20, this);
+
+            Destroy(bulletObject, 2f);
+
         }
     }
     private bool IsReadyToShoot()

@@ -12,18 +12,20 @@ public class Rock : Weapon
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        Damage = 40;
-        force = new Vector2 (5 * GetShootDirection(), 200);
+        force = new Vector2 (2 * GetShootDirection(), 10);
         Move();
     }
 
     // Override Behavior
     public override void Move()
     {
-        Debug.Log("Rock move with Rigidbody:force");
+        rb2d.AddForce (force, ForceMode2D.Impulse);
     }
     public override void OnHitWith(Character inputChar)
     {
-
+        if (inputChar is Player)
+        {
+            inputChar.TakeDamage(Damage);
+        }
     }
 }

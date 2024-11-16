@@ -12,7 +12,10 @@ public class Crocodile : Enemy , IShootable
     [field: SerializeField] public float BulletSpawnTime { get; set; }
     public float BulletTimer { get; set; }
 
-
+    private void Start()
+    {
+        Init(150);
+    }
     private void Update()
     {
         BulletTimer -= Time.deltaTime;
@@ -43,9 +46,7 @@ public class Crocodile : Enemy , IShootable
             GameObject bulletObject = Instantiate(Bullet, BulletSpawnPoint.position, Quaternion.identity);
             Rock rock = bulletObject.GetComponent<Rock>();
             rock.Init(20, this);
-
             Destroy(bulletObject, 2f);
-
         }
     }
     private bool IsReadyToShoot()

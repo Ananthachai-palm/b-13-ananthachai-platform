@@ -28,9 +28,23 @@ public class Player : Character, IShootable
         if (Input.GetButtonDown("Fire1") && IsReadyToShoot())
         {
             GameObject bulletObject = Instantiate(Bullet, BulletSpawnPoint.position, Quaternion.identity);
+            Banana banana = bulletObject.GetComponent<Banana>();
+            banana.Init(10, this);
             Destroy (bulletObject, 2f);
 
             BulletTimer = BulletSpawnTime;
         }
     }
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        OnHitWith(other.GetComponent<Enemy>());
+    }
+    public void OnHitWith(Enemy inputChar)
+    {
+        if (inputChar is Enemy)
+        {
+            TakeDamage(10);
+        }
+    }
+
 }

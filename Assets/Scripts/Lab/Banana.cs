@@ -10,16 +10,25 @@ public class Banana : Weapon
     // Init in Start method
     private void Start()
     {
+        speed = 5f * GetShootDirection();
+    }
+    private void FixedUpdate()
+    {
         Move();
     }
 
     // Override Behavior
     public override void Move()
     {
-        Debug.Log("Banana moves with constant speed using Transform");
+        Vector2 newPosistion = new Vector2(transform.position.x + speed 
+                                           * Time.fixedDeltaTime, transform.position.y);
+        transform.position = newPosistion;
     }
     public override void OnHitWith(Character inputChar)
     {
-
+        if (inputChar is Enemy)
+        {
+            inputChar.TakeDamage(Damage);
+        }
     }
 }

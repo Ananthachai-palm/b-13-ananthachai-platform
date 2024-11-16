@@ -10,7 +10,7 @@ public class Ant : Enemy
 
     private void Start()
     {
-        Init(10);
+        Init(50);
 
         Behaviour();
     }
@@ -32,7 +32,6 @@ public class Ant : Enemy
             Flip();
         }
     }
-
     private void Flip()
     {
         velocity *= -1;
@@ -40,5 +39,7 @@ public class Ant : Enemy
         Vector2 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
+
+        CharHealthBar.transform.localScale *= -1;
     }
 }
